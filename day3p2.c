@@ -14,23 +14,31 @@ int main(){
         if(count++ % 3 != 2){
             continue;
         }
-        
+
+        char duplicate;
+        int break_flag = 0;
         for(int i = 0; i < (int)strlen(buff[0]); ++i){
             for(int j = 0; j < (int)strlen(buff[1]); ++j){
                 if(buff[0][i] == buff[1][j]){
-                    duplicate = buff[0][i];
-                    break;
+                    for(int k = 0; k < (int)strlen(buff[2]); ++k){
+                        if(buff[0][i] == buff[2][k]){
+                            duplicate = buff[0][i];
+                            break_flag = 1;
+                            break;
+                        }
+                    }
+                    if (break_flag == 1) {
+                        break;
+                    }
                 }
             }
-
-            for(int j = 0; j < (int)strlen(buff[2]); ++j){
-                if(buff[0][i] == buff[2][j]){
-
-                }
+            if (break_flag == 1) {
+                break;
             }
+
         }
 
-        int priority; 
+        int priority;
         if(duplicate >= 'a'){
             priority = duplicate - 'a' + 1;
         }else{
@@ -39,7 +47,9 @@ int main(){
 
         total += priority;
 
-        printf("%s", buff);
+        printf("%s", buff[0]);
+        printf("%s", buff[1]);
+        printf("%s", buff[2]);
     }
 
     fclose(fp);
