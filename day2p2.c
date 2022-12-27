@@ -11,32 +11,25 @@ int main(){
     while (fgets(buff, 255, fp)){
         int hand;
         if(buff[0] == 'A'){
-            hand = 1;
+            hand = 0;
         }else if (buff[0] == 'B') {
+            hand = 1;
+        }else {
             hand = 2;
-        }else {
-            hand = 3;
         }
 
-        int response;
+        int game_state;
         if(buff[2] == 'X'){
-            response = 1;
+            game_state = 2;
         }else if (buff[2] == 'Y') {
-            response = 2;
+            game_state = 0;
         }else {
-            response = 3;
+            game_state = 1;
         }
 
-        int game_results = (hand - response + 2) % 3;
+        int response = (hand + game_state) % 3;
 
-        int score;
-        if (game_results == 2) {
-            score = 3 + response;
-        }else if (game_results == 0) {
-            score = response;
-        }else {
-            score = 6 + response;
-        }
+        int score = (((game_state + 1) % 3) * 3) + response + 1;
 
         total += score;
         printf("%s", buff);
