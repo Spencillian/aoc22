@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(){
-    char val = 'A';
+    char val = '\0';
     
     int result = (int)(val - 'A' + 1);
     if(val >= 'a'){
