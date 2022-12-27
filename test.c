@@ -2,6 +2,16 @@
 #include <stdlib.h>
 
 int main(){
-    printf("%d", -2 % 2);
+    char val = 'A';
+    
+    int result = (int)(val - 'A' + 1);
+    if(val >= 'a'){
+        result = val - 'a' + 1;
+    }else{
+        result = val - 'A' + 26 + 1;
+    }
+    printf("%c\n", val);
+    printf("%d\n", result);
+
     return 0;
 }
