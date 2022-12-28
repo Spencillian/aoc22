@@ -25,12 +25,12 @@ int main(){
             }
         }
 
-        if (vals[0] <= vals[2] && vals[1] >= vals[3]) {
+        if ((vals[2] >= vals[0] && vals[2] <= vals[1]) || (vals[3] >= vals[0] && vals[3] <= vals[1])) {
             total++;
             continue;
         }
 
-        if (vals[2] <= vals[0] && vals[3] >= vals[1]) {
+        if ((vals[0] >= vals[2] && vals[0] <= vals[3]) || (vals[1] >= vals[2] && vals[1] <= vals[3])) {
             total++;
             continue;
         }
