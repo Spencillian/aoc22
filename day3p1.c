@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(){
     FILE *fp;
@@ -20,7 +21,7 @@ int main(){
             }
         }
 
-        int priority; 
+        int priority;
         if(duplicate >= 'a'){
             priority = duplicate - 'a' + 1;
         }else{
