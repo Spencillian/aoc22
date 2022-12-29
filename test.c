@@ -20,18 +20,29 @@ void push(stack *s, char label){
     s->arr[s->top++] = label;
 }
 
+char pop(stack *s){
+    return s->arr[--s->top];
+}
+
 int main(){
-    stack s = init_stack("HELLO");
-    stack t = init_stack("HELLO");
+    stack stacks[2] = {
+        init_stack("HELLO"),
+        init_stack("WORLD"),
+    };
 
-    printf("%s\n", s.arr);
+    printf("%s\n", stacks[0].arr);
 
-    push(&s, '!');
-    printf("%s\n", s.arr);
-    printf("%s\n", t.arr);
+    push(&stacks[0], '!');
+    printf("%s\n", stacks[0].arr);
+    printf("%s\n", stacks[1].arr);
 
-    push(&s, '6');
-    printf("%s\n", s.arr);
+    push(&stacks[0], '6');
+    printf("%s\n", stacks[0].arr);
+
+
+    printf("%c\n", pop(&stacks[0]));
+    printf("%c\n", pop(&stacks[0]));
+    printf("%c\n", pop(&stacks[0]));
 
     return 0;
 }
